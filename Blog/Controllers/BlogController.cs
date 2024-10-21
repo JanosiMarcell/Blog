@@ -1,5 +1,7 @@
-﻿using Blog.Models;
+﻿using Blog.Migrations;
+using Blog.Models;
 using Microsoft.AspNetCore.Mvc;
+using static Blog.Models.Dto;
 
 namespace Blog.Controllers
 {
@@ -17,5 +19,10 @@ namespace Blog.Controllers
             }
 
         }
+        [HttpPost]
+        public ActionResult<Blogger> Post(CreateBloggerDto blogerDto)
+        {
+            return Ok();
+    }
     }
 }
