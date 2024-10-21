@@ -48,13 +48,13 @@ namespace Blog.Controllers
                     RegistrationTime=DateTime.Now,
                 };
                 if (blogger != null)
-                {
+                {   
                     context.Bloggers.Add(blogger);
                     context.SaveChanges();
                     return StatusCode(201, blogger);
                 }
             }
-            return Ok();
+            return BadRequest();
     }
     }
 }
