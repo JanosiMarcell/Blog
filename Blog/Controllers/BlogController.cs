@@ -20,8 +20,19 @@ namespace Blog.Controllers
 
         }
         [HttpPost]
-        public ActionResult<Blogger> Post(CreateBloggerDto blogerDto)
+        public ActionResult<Blogger> Post(CreateBloggerDto BloggerDto)
         {
+            using (var context = new BlogDbContext())
+            {
+                var blogger = new Blogger()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = createBloggerDto.Name,
+                    Sex = createBloggerDto.Sex
+                    Status="Waiting",
+                    RegistrationTime=DateTime.Now,
+                };
+            }
             return Ok();
     }
     }
